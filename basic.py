@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+from annotated_text import annotated_text
 
 
 def main():
@@ -45,7 +46,20 @@ def main():
     st.write("```multiselect: {}```".format(multiselect))
 
     st.markdown("## Sidebar")
+    st.sidebar.markdown("## Sidebar")
     slider = st.sidebar.slider("num_outputs", 3, 10, 5, 1)
     selectbox = st.sidebar.selectbox("from", [2010, 2018, 2019, 2020], index=0)
     st.write("```slider: {}```".format(slider))
     st.write("```selectbox: {}```".format(selectbox))
+
+    st.markdown("## Use External Library")
+    st.markdown("### Annotated Text")
+    annotated_text(
+        "This ",
+        ("is", "verb", "#8ef"),
+        " some ",
+        ("annotated", "adj", "#faa"),
+        ("text", "noun", "#afa"),
+        "."
+    )
+
